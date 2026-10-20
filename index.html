@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProMatch — B2B SaaS MVP</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">P</div><div><strong>ProMatch</strong><small>Verified Talent SaaS MVP</small></div></div>
+  <div id="health" class="pill">Checking...</div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <span class="eyebrow">SWEDEN-FIRST · MULTI-TENANT B2B SAAS</span>
+    <h1>Verified professionals. Explainable matching. Controlled access.</h1>
+    <p>Functional MVP demonstrating candidate passports, verification workflows, explainable AI-assisted matching, subscriptions, contracts, auditability, and GDPR-oriented access controls.</p>
+    <div class="chips"><span>5-role ready</span><span>Hybrid matching</span><span>Stripe-ready</span><span>Oneflow/Scrive-ready</span><span>EU-hosting ready</span></div>
+  </div>
+  <div class="stat-grid">
+    <div><span>Tenant</span><strong>Nordic Care AB</strong></div>
+    <div><span>Plan</span><strong>Growth</strong></div>
+    <div><span>Region</span><strong>EU / EEA</strong></div>
+  </div>
+</section>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="matching">AI Matching</button>
+  <button class="tab" data-tab="candidates">Candidate Passport</button>
+  <button class="tab" data-tab="verification">Verification</button>
+  <button class="tab" data-tab="subscriptions">Subscriptions</button>
+  <button class="tab" data-tab="contracts">Contracts</button>
+</nav>
+
+<section id="matching" class="panel tab-panel active">
+  <div class="panel-head"><div><span class="eyebrow">EMPLOYER PORTAL</span><h2>Explainable Candidate Matching</h2></div><span class="pill good">No protected traits</span></div>
+  <form id="matchForm" class="form">
+    <div class="two">
+      <label>Role title<input id="roleTitle" value="Software Engineer" required></label>
+      <label>Location<input id="location" value="Stockholm"></label>
+    </div>
+    <div class="two">
+      <label>Mandatory skill<input id="mandatorySkill" value="Python"></label>
+      <label>Minimum experience<input id="minExperience" type="number" value="5" min="0"></label>
+    </div>
+    <div class="two">
+      <label>Required verification
+        <select id="verificationLevel">
+          <option value="any">Any</option>
+          <option value="document_checked">Document checked+</option>
+          <option value="independently_confirmed" selected>Independently confirmed</option>
+        </select>
+      </label>
+      <label>Role matching
+        <select id="strictRole">
+          <option value="true" selected>Strict role match</option>
+          <option value="false">Flexible role match</option>
+        </select>
+      </label>
+    </div>
+    <button type="submit">Find Verified Matches</button>
+  </form>
+  <div id="matchResults" class="result empty">Run a match to see explainable results.</div>
+</section>
+
+<section id="candidates" class="panel tab-panel">
+  <div class="panel-head"><div><span class="eyebrow">DIGITAL PROFESSIONAL PASSPORT</span><h2>Candidate Profiles</h2></div></div>
+  <div id="candidateList" class="cards"></div>
+</section>
+
+<section id="verification" class="panel tab-panel">
+  <div class="panel-head"><div><span class="eyebrow">VERIFICATION OFFICER</span><h2>Review Queue</h2></div></div>
+  <div id="verificationList" class="cards"></div>
+</section>
+
+<section id="subscriptions" class="panel tab-panel">
+  <div class="panel-head"><div><span class="eyebrow">COMPANY ADMIN</span><h2>Subscription & Usage</h2></div></div>
+  <div id="subscriptionCard" class="result empty">Loading subscription...</div>
+  <button id="costBtn" class="secondary">Show pilot operating-cost estimate</button>
+  <div id="costResult" class="result empty hidden"></div>
+</section>
+
+<section id="contracts" class="panel tab-panel">
+  <div class="panel-head"><div><span class="eyebrow">E-SIGNATURE</span><h2>Business Agreements</h2></div><span class="pill">Oneflow / Scrive integration-ready</span></div>
+  <form id="contractForm" class="form compact">
+    <div class="two">
+      <label>Company<input id="contractCompany" value="Nordic Care AB" required></label>
+      <label>Template<input id="contractTemplate" value="Business Subscription Agreement" required></label>
+    </div>
+    <button type="submit">Create Agreement</button>
+  </form>
+  <div id="contractList" class="cards"></div>
+</section>
+
+<section class="architecture">
+  <span>Production architecture</span>
+  <strong>Next.js / React → NestJS / Node.js → PostgreSQL + EU object storage → Hybrid rule + AI matching → Stripe → Oneflow/Scrive → Audit logs → CI/CD → AWS Stockholm</strong>
+</section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

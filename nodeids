@@ -1,0 +1,9 @@
+[
+  "test_app.py::test_contract_creation",
+  "test_app.py::test_health",
+  "test_app.py::test_match_filters_mandatory_requirements",
+  "test_app.py::test_strict_role_prevents_wrong_job_match",
+  "test_app.py::test_subscription",
+  "test_app.py::test_verification_update",
+  "test_app.py::test_verified_software_engineer_match"
+]
